@@ -31,5 +31,15 @@ var learn = new Vue({
       return this.intResultMethodParam = this.int1 + this.int2 + int3;
     }
   },
+  watch: {
+    kilometers: function (val) {
+      this.kilometers = val;
+      this.meters = val * 1000;
+    },
+    meters: function (val) {
+      this.kilometers = val / 1000;
+      this.meters = val;
+    }
+  },
 
 });
