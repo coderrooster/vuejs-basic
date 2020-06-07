@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
   <title>Learn Vue.js</title>
   <!-- Bootstrap core CSS -->
-  <link href="assets/bootstrap4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/bootstrap4.3.1/css/bootstrap.min.css" rel="stylesheet" />
   <!-- Custom styles for this template -->
-  <link href="assets/css/blog-home.css" rel="stylesheet">
+  <link href="assets/css/blog-home.css" rel="stylesheet" />
 </head>
-<body>
 
+<body>
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
@@ -44,42 +45,74 @@
 
   <!-- Page Content -->
   <div class="container" id="app-learn">
-
     <div class="row">
-
       <!-- main page -->
       <div class="col-md-12">
-        <h1 class="my-4" v-if='appDesc.status'>{{ appDesc.parent }}
-          <small v-html='appDesc.child'></small>
+        <h1 class="my-4" v-if="appDesc.status">
+          {{ appDesc.parent }}
+          <small v-html="appDesc.child"></small>
         </h1>
-        
+
         <!-- PART 1 -->
         <div class="card">
           <div class="card-body">
-            <h4>Computed Data</h4>
+            <h4 class="mb-0">Computed Properties</h4>
+            <small class="text-secondary">Working like a variable, Computed Properties using a cache.
+              Realtime change with relation computed.</small>
             <ul>
               <li>Result from {{ int1 }} + {{ int2 }} is {{ sum }}</li>
             </ul>
 
-            <h4>Method</h4>
+            <h4 class="mb-0">Method Properties</h4>
+            <small class="text-secondary">Not like a variable, not use cache. If want show result, do
+              call a method again.</small>
             <ul>
-              <li>Result for {{ int1 }} + {{ int2 }} is {{ sum }} <button class="btn ">Process</button></li>
+              <li>
+                Result for {{ int1 }} + {{ int2 }} is
+                <span v-if="intResultMethod != null">{{ intResultMethod }}</span>
+                <span v-else class="text-danger">NULL (Click Process Button)</span>
+                &nbsp;&nbsp;&nbsp;
+                <button v-on:click="sumProcess" class="btn btn-primary btn-sm">
+                  Process
+                </button>
+              </li>
+              <li>
+                Result With Param for {{ int1 }} + {{ int2 }} + Param(10) is
+                <span v-if="intResultMethodParam != null">{{ intResultMethodParam }}</span>
+                <span v-else class="text-danger">NULL (Click Process Button)</span>
+                &nbsp;&nbsp;&nbsp;
+                <button v-on:click="sumProcessParam(10)" class="btn btn-primary btn-sm">
+                  Process
+                </button>
+              </li>
             </ul>
 
+            <h4 class="mb-0">Watch Properties</h4>
+            <small class="text-secondary">---.</small>
+            <p><b>Realtime data kilometers to meters counter :</b></p>
+            <div class="form-row">
+              <div class="col-md-6 mb-3">
+                <label for="validationDefault01">Kilometers</label>
+                <input type="number" class="form-control form-control-sm" v-model="kilometers"/>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="validationDefault02">Meters</label>
+                <input type="number" class="form-control form-control-sm" v-model="meters"/>
+              </div>
+            </div>
           </div>
         </div>
-
       </div>
-
-    </div><!-- /.row -->
-  </div><!-- /.container -->
-
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container -->
 
   <!-- Bootstrap core JavaScript -->
   <script src="assets/js/jquery/jquery.min.js"></script>
   <script src="assets/bootstrap4.3.1/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/vue/vue.js"></script>
   <script src="assets/js/learn-vue.js"></script>
-
 </body>
+
 </html>

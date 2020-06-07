@@ -11,8 +11,11 @@ var learn = new Vue({
       //data computed
       int1 : 5,
       int2 : 3,
-      intResult: null,
-
+      intResultMethod: null,
+      intResultMethodParam: null,
+      kilometers : 0,
+      meters: 0,
+      
     }
   },
   computed: {
@@ -22,7 +25,10 @@ var learn = new Vue({
   },
   methods: {
     sumProcess: function(){
-      return this.intResult = this.int2 + this.int2;
+      return this.intResultMethod = this.int1 + this.int2;
+    },
+    sumProcessParam: function(int3){
+      return this.intResultMethodParam = this.int1 + this.int2 + int3;
     }
   },
 
