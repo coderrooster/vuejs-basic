@@ -15,7 +15,17 @@ var learn = new Vue({
       intResultMethodParam: null,
       kilometers : 0,
       meters: 0,
-      
+      //Directive v-model
+      inputText1: '',
+      inputText2: '',
+      inputRadio: '',
+      inputCheckbox:[],
+      selectInput:'',
+      //Directive v-bind
+      sourceImg: 'https://secureservercdn.net/198.71.233.204/40d.160.myftpupload.com/wp-content/uploads/2018/01/StepstoSuccesslogo-186x180.png',
+      sourceUrl: 'https://google.com/',
+      sourceCssSingle:'coral',
+      sourceCssMulti:'color:blue; font-size:1.3em;',
     }
   },
   computed: {

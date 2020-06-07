@@ -54,16 +54,16 @@
         </h1>
 
         <!-- PART 1 -->
-        <div class="card">
+        <div class="card mb-5">
           <div class="card-body">
-            <h4 class="mb-0">Computed Properties</h4>
+            <h4 class="mb-0 text-primary">Computed Properties</h4>
             <small class="text-secondary">Working like a variable, Computed Properties using a cache.
               Realtime change with relation computed.</small>
             <ul>
               <li>Result from {{ int1 }} + {{ int2 }} is {{ sum }}</li>
             </ul>
 
-            <h4 class="mb-0">Method Properties</h4>
+            <h4 class="mb-0 text-primary">Method Properties</h4>
             <small class="text-secondary">Not like a variable, not use cache. If want show result, do
               call a method again.</small>
             <ul>
@@ -87,7 +87,7 @@
               </li>
             </ul>
 
-            <h4 class="mb-0">Watch Properties</h4>
+            <h4 class="mb-0 text-primary">Watch Properties</h4>
             <small class="text-secondary">Can changes realtime data even when user typing in input form. Watch Properties name must be the same as the variable name.</small>
             <p><b>Realtime data kilometers to meters counter :</b></p>
             <div class="form-row">
@@ -100,6 +100,80 @@
                 <input type="number" class="form-control form-control-sm" v-model="meters"/>
               </div>
             </div>
+
+            <h4 class="mb-0 mt-3 text-primary">Directive v-model</h4>
+            <small class="text-secondary">Realtime get data form input, click and select.</small>
+
+            <div class="my-2">
+              <div class="input-group input-group-sm">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">Input Data &nbsp; <b>Textbox</b></div>
+                </div>
+                <input type="text" class="form-control form-control-sm" v-model="inputText1">
+              </div>
+              <b>Realtime Data : <span class="text-primary">{{ inputText1 }}</span></b>
+            </div>
+            
+            <div class="my-4">
+              <textarea cols="50" rows="5" v-model="inputText2"></textarea>
+              <div>
+                <b>Realtime Data :</b>
+                <p class="text-primary font-weight-bold ml-4" style="white-space: pre-line;">{{ inputText2 }}</p>
+              </div>
+            </div>
+            
+            <div class="my-4">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="inlineRadio1" v-model="inputRadio" value="rVal1">
+                <label class="form-check-label" for="inlineRadio1">Option 1</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="inlineRadio2" v-model="inputRadio" value="rVal2">
+                <label class="form-check-label" for="inlineRadio2">Option 2</label>
+              </div>
+              <p class="font-weight-bold">Realtime Data : <span class="text-primary" >{{ inputRadio }}</span> </p>
+            </div>
+            
+            <div class="my-4">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" v-model="inputCheckbox" value="Reading">
+                <label class="form-check-label" for="inlineCheckbox1">Reading</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" v-model="inputCheckbox" value="Traveling">
+                <label class="form-check-label" for="inlineCheckbox2">Traveling</label>
+              </div>
+              <p class="font-weight-bold mb-0">Realtime Data (My Hobby is): </p>
+              <ul>
+                <li v-for="hobby in inputCheckbox">{{ hobby }}</li>
+              </ul>
+            </div>
+
+            <div class="my-4">
+              <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Choose Programming Language</label>
+              <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" v-model="selectInput">
+                <option selected disabled value="">Choose...</option>
+                <option value="Javascript">Javascript</option>
+                <option value="PHP">PHP</option>
+                <option value="Java">Java</option>
+              </select>
+              <p class="font-weight-bold mb-0">Realtime Data (My Favorite Programming Language is): <span class="text-primary">{{ selectInput }}</span></p>
+            </div>
+
+            <h4 class="mb-0 mt-3 text-primary">Directive v-bild</h4>
+            <small class="text-secondary">Add and change HTML properties.</small>
+
+            <div class="card" style="width: 18rem;">
+              <img class="card-img-top" v-bind:src="sourceImg" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title" v-bind:style="sourceCssMulti">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a v-bind:href="sourceUrl" target="_blank" class="btn btn-primary" v-bind:style="{color: sourceCssSingle}">Open Google.com</a>
+              </div>
+            </div>
+
+
+            <p class="mt-5">BOTTOM TEXT</p>
           </div>
         </div>
       </div>
